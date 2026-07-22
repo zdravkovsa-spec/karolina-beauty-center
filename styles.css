@@ -81,6 +81,8 @@ body {
 .btn-outline { border: 1px solid var(--gold); color: var(--gold-light); }
 .btn-outline:hover { background: rgba(211, 166, 63, 0.12); }
 
+.btn svg { vertical-align: -3px; margin-right: 6px; }
+
 /* Услуги — «мраморные» карточки */
 .services { max-width: 1060px; margin: 0 auto; padding: 72px 20px 40px; }
 
