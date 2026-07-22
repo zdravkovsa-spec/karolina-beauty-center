@@ -1,75 +1,61 @@
 :root {
-  --bg: #fdf6f4;
-  --stripe: #f7e6e2;
-  --rose: #d89aa4;
-  --rose-deep: #b76e79;
-  --ink: #3c2f31;
-  --muted: #8a7376;
-  --card: #ffffff;
+  --black: #0d0c0b;
+  --black-2: #14120f;
+  --gold: #d3a63f;
+  --gold-light: #e8c877;
+  --white: #f5f2ea;
+  --muted: #b7ad99;
+  --marble: #f6f4f0;
+  --ink: #2b2723;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: Georgia, "Times New Roman", serif;
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--black);
+  color: var(--white);
   line-height: 1.6;
 }
 
-/* Hero — мягкие розовые полосы, как в бренд-анонсе */
+/* Промо-строка открытия */
+.promo {
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  background: var(--black-2);
+  border-bottom: 1px solid rgba(211, 166, 63, 0.35);
+}
+
+/* Hero — тонкая золотая рамка, как на баннере */
 .hero {
-  min-height: 82vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 56px 20px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--bg) 0 72px,
-    var(--stripe) 72px 144px
-  );
+  padding: 28px 20px;
+  background: radial-gradient(ellipse at 50% 35%, #1c1913 0%, var(--black) 70%);
 }
 
-.hero-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(183, 110, 121, 0.25);
-  border-radius: 14px;
-  padding: 56px 48px;
-  max-width: 640px;
-  box-shadow: 0 18px 50px rgba(183, 110, 121, 0.14);
+.hero-frame {
+  border: 1px solid rgba(211, 166, 63, 0.55);
+  outline: 1px solid rgba(211, 166, 63, 0.2);
+  outline-offset: 5px;
+  border-radius: 2px;
+  padding: 40px 48px 48px;
+  max-width: 760px;
+  width: 100%;
 }
 
-.monogram {
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  background: var(--rose);
-  color: #fff;
-  font-size: 2rem;
+.logo {
+  max-width: min(520px, 86%);
+  height: auto;
+  mix-blend-mode: lighten; /* растворяет прямоугольник подложки логотипа в фоне */
 }
 
-h1 {
-  font-size: clamp(2.6rem, 8vw, 4.2rem);
-  font-weight: 500;
-  color: var(--rose-deep);
-  letter-spacing: 0.03em;
-  line-height: 1.05;
-}
-
-h1 span {
-  display: block;
-  font-size: 0.42em;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 10px;
-}
-
-.tagline { font-size: 1.1rem; margin-top: 18px; }
+.tagline { font-size: 1.12rem; margin-top: 10px; }
 .tagline-sub { color: var(--muted); font-style: italic; margin-top: 4px; }
 
 .cta-row {
@@ -83,26 +69,27 @@ h1 span {
 .btn {
   display: inline-block;
   padding: 14px 28px;
-  border-radius: 999px;
+  border-radius: 3px;
   text-decoration: none;
   font-size: 1rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
-.btn-rose { background: var(--rose-deep); color: #fff; }
-.btn-rose:hover { background: var(--rose); }
+.btn-gold { background: var(--gold); color: #171204; }
+.btn-gold:hover { background: var(--gold-light); }
 
-.btn-outline { border: 1px solid var(--rose-deep); color: var(--rose-deep); }
-.btn-outline:hover { background: rgba(183, 110, 121, 0.08); }
+.btn-outline { border: 1px solid var(--gold); color: var(--gold-light); }
+.btn-outline:hover { background: rgba(211, 166, 63, 0.12); }
 
-/* Services */
+/* Услуги — «мраморные» карточки */
 .services { max-width: 1060px; margin: 0 auto; padding: 72px 20px 40px; }
 
 h2 {
-  color: var(--rose-deep);
+  color: var(--gold);
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
+  letter-spacing: 0.04em;
   margin-bottom: 36px;
 }
 
@@ -113,26 +100,35 @@ h2 {
 }
 
 .card {
-  background: var(--card);
-  border: 1px solid rgba(183, 110, 121, 0.18);
-  border-radius: 12px;
+  color: var(--ink);
+  border: 1px solid rgba(211, 166, 63, 0.5);
+  border-radius: 4px;
   padding: 28px 24px;
-  box-shadow: 0 8px 22px rgba(183, 110, 121, 0.08);
+  background:
+    linear-gradient(115deg, transparent 42%, rgba(176, 168, 152, 0.16) 43%, transparent 46%),
+    linear-gradient(295deg, transparent 60%, rgba(176, 168, 152, 0.12) 61%, transparent 65%),
+    linear-gradient(160deg, #ffffff 0%, var(--marble) 55%, #edeae3 100%);
 }
 
-.card h3 { color: var(--rose-deep); font-weight: 500; margin-bottom: 10px; }
-.card p { color: var(--muted); font-size: 0.98rem; }
+.card h3 {
+  color: #9a7420;
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(211, 166, 63, 0.45);
+}
 
-/* Contact */
+.card p { color: #5b5348; font-size: 0.98rem; }
+
+/* Контакты */
 .visit {
   max-width: 640px;
   margin: 0 auto 72px;
   padding: 48px 32px;
   text-align: center;
-  background: var(--card);
-  border: 1px solid rgba(183, 110, 121, 0.18);
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(183, 110, 121, 0.08);
+  border: 1px solid rgba(211, 166, 63, 0.5);
+  border-radius: 4px;
+  background: var(--black-2);
 }
 
 .visit h2 { margin-bottom: 16px; }
@@ -140,15 +136,19 @@ h2 {
 .phone { font-size: 1.35rem; margin: 12px 0 4px; }
 .langs { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
 
-.link-rose { color: var(--rose-deep); text-decoration: none; }
-.link-rose:hover { text-decoration: underline; }
+.link-gold { color: var(--gold-light); text-decoration: none; }
+.link-gold:hover { text-decoration: underline; }
 
 footer {
-  border-top: 1px solid rgba(183, 110, 121, 0.2);
+  border-top: 1px solid rgba(211, 166, 63, 0.3);
   padding: 24px 20px;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-footer a { color: var(--rose-deep); }
+footer a { color: var(--gold-light); }
+
+@media (max-width: 560px) {
+  .hero-frame { padding: 28px 20px 36px; }
+}
